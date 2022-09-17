@@ -1,1 +1,4 @@
-View Site @ https://project-blog-graph-cms.vercel.app/
+# Blog with GraphCMS
+
+## View Site
+https://project-blog-graph-cms.vercel.app/
