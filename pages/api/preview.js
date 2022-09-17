@@ -1,4 +1,4 @@
-import { getPreviewPostBySlug } from '../../lib/graphcms'
+import { getPreviewPostBySlug } from '../../services'
 
 export default async function handler(req, res) {
   // Check the secret and next parameters

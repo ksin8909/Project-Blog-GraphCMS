@@ -239,3 +239,16 @@ export const submitComment = async (obj) => {
 
   return result.json();
 };
+
+export const getPreviewPostBySlug = async (slug) => {
+  const query = gql`
+    query PostBySlug($slug: String!) {
+      post(where: {slug: $slug}) {
+        slug
+      }
+    }`;
+
+    const result = await request(graphqlAPI, query, { slug });
+    return result.post;
+
+}
