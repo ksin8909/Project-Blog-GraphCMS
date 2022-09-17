@@ -5,12 +5,10 @@ import cn from 'classnames'
 export default function CoverImage({ title, url, slug }) {
   const image = (
     <Image
-      width={2000}
-      height={1000}
+      width={1600}
+      height={900}
       alt={`Cover Image for ${title}`}
-      className={cn('shadow-small', {
-        'hover:shadow-medium transition-shadow duration-200': slug,
-      })}
+      className="object-cover rounded-t-lg lg:rounded-lg"
       src={url}
     />
   )

@@ -12,20 +12,14 @@ export default function PostPreview({
   slug,
 }) {
   return (
-    <div>
-      <div className="mb-5">
-        <CoverImage slug={slug} title={title} url={coverImage.url} />
+    <div className="adjacent-post rounded-lg relative h-72">
+      <div className="absolute rounded-lg bg-center bg-no-repeat bg-cover inline-block w-full h-72" style={{ backgroundImage: `url('${coverImage.url}')` }} />
+        <div className="absolute rounded-lg bg-center bg-gradient-to-b opacity-60 from-gray-400 via-gray-600 to-black w-full h-72" />
+        <div className="flex flex-col rounded-lg p-4 items-center justify-center absolute w-full h-full">
+          <p className="font-semibold text-xs">{date}</p>
+          <p className="text-white font-semibold text-2xl text-center">{title}</p>
+        </div>
+        <Link href={`/posts/${slug}`}><span className="z-10 cursor-pointer absolute w-full h-full" /></Link>
       </div>
-      <h3 className="mb-3 text-3xl leading-snug">
-        <Link href={`/posts/${slug}`}>
-          <a className="hover:underline">{title}</a>
-        </Link>
-      </h3>
-      <div className="mb-4 text-lg">
-        <Date dateString={date} />
-      </div>
-      <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>
-      <Avatar name={author.name} picture={author.picture.url} />
-    </div>
   )
 }

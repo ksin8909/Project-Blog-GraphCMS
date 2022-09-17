@@ -1,34 +1,24 @@
 import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
+import HomePosts from 'components/home-posts'
+import Header from 'components/header'
 import Layout from '../components/layout'
-import { getAllPostsForHome } from '../lib/graphcms'
 import Head from 'next/head'
 import { CMS_NAME } from '../lib/constants'
+import Footer from 'components/footer'
+import { getAllPostsForHome } from '../services'
 
 export default function Index({ posts, preview }) {
-  const heroPost = posts[0]
-  const morePosts = posts.slice(1)
+  const morePosts = posts.slice(0, 10)
   return (
     <>
       <Layout preview={preview}>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Blog with {CMS_NAME}</title>
         </Head>
         <Container>
-          <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          <Header />
+          {morePosts.length > 0 && <HomePosts posts={morePosts} />}
+          <Footer />
         </Container>
       </Layout>
     </>
