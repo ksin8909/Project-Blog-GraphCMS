@@ -135,7 +135,7 @@ export const getMorePosts = async (topic, slug) => {
   return result.morePosts;
 };
 
-export const getLatestPosts = async (topic) => {
+export const getLatestPosts = async () => {
   const query = gql`
     query GetLatestPosts {
       latestPosts: posts(orderBy: date_DESC, first: 5) {
@@ -149,7 +149,7 @@ export const getLatestPosts = async (topic) => {
     }
   `;
 
-  const result = await request(graphqlAPI, query, { topic });
+  const result = await request(graphqlAPI, query);
   return result.latestPosts;
 };
 

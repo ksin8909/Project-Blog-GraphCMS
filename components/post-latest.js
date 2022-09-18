@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Date from '../components/date'
-import { getLatestPosts } from 'services';
+import { getLatestPosts } from '../services';
 
 export default function PostLatest() {
   const [posts, setPosts] = useState([]);
